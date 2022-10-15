@@ -1,0 +1,39 @@
+body{
+    margin: 0%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav {
+    background-color: rgb(220, 52, 119);
+    border: 1px solid transparent;
+    height: 45px;
+    padding: 10px;  
+}
+
+.home{
+    margin-right: 50px;
+    margin-left: 50px;
+    text-decoration: none;
+    color: rgb(40, 240, 223);
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+#main{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 50px;
+
+}
+
+.breed{
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-top: 80px;
+    color: rgb(170, 0, 255);
+    font-weight: bolder;
+}
+

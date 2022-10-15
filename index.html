@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!---------------------------------------Navbar------------------------------------------------->
+      <div class="nav">
+        <a class="home" href="./index.html">Puppy Love</a>
+      </div>
+
+    <!----------------------------main div -------------------------------------------------------- -->
+      <div id="main"></div>
+    </div>
+  </body>
+</html>
+<script>
+
+    
+    var main = document.getElementById("main")
+
+    async function getBreed(){
+        try{
+            let res = await fetch("https://dog.ceo/api/breeds/list/all");
+            let data = await res.json();
+            
+            var puppyArr = [];
+
+            for(let key in data.message){
+                let el={
+                    breed:key,
+                    [key]:data.message[key],
+                };
+                puppyArr.push(el)
+            }
+
+            // console.log("arr : ", [...puppyArr]);
+            displayData([...puppyArr])
+        }catch(err){
+            console.log(err.message);
+        }
+    }
+
+    getBreed();
+
+    function displayData(Arr) {
+        Arr.map(function(el){
+          
+            // console.log(el);
+            var breed = document.createElement('div');
+            breed.innerHTML = el.breed;
+            breed.setAttribute("class", 'breed');
+            main.append(breed);
+        })
+    }  
+    
+
+
+</script>
